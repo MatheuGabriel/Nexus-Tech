@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechStore - Acessórios de Computador</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background: #0d1b2a;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .banner {
+      background: url('https://picsum.photos/1200/300?tech') no-repeat center/cover;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    .produtos {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .produto {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .produto img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .produto h3 {
+      margin: 10px 0;
+      font-size: 1.2rem;
+    }
+
+    .produto p {
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .produto button {
+      background: #1b263b;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin: 5px 0;
+    }
+
+    .produto button:hover {
+      background: #415a77;
+    }
+
+    .produto .saiba-mais {
+      background: #457b9d;
+      margin-left: 5px;
+    }
+
+    .produto .saiba-mais:hover {
+      background: #1d3557;
+    }
+
+    .carrinho {
+      background: #fff;
+      padding: 2rem;
+      margin: 2rem auto;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+    }
+
+    .carrinho h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #1b263b;
+    }
+
+    .carrinho ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1rem;
+    }
+
+    .carrinho li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .carrinho li span {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .carrinho button {
+      background: #e63946;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .carrinho button:hover {
+      background: #d62828;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #1b263b;
+    }
+
+    footer {
+      text-align: center;
+      background: #0d1b2a;
+      color: #fff;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    @media(max-width:600px) {
+      .banner {
+        font-size: 1.5rem;
+        height: 200px;
+      }
+
+      .produto img {
+        height: 150px;
+      }
+
+      .carrinho {
+        padding: 1rem;
+      }
+
+      .carrinho h2 {
+        font-size: 1.5rem;
+      }
+
+      .carrinho button {
+        padding: 3px 7px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>🖥️ TechStore</h1>
+    <nav><a href="#home">Home</a><a href="#produtos">Produtos</a><a href="#carrinho">Carrinho</a></nav>
+  </header>
+
+  <section class="banner" id="home">Bem-vindo à TechStore!</section>
+
+  <section class="produtos" id="produtos">
+    <div class="produto">
+      <img src="https://picsum.photos/300/200?keyboard" alt="Teclado Mecânico">
+      <h3>Teclado Mecânico</h3>
+      <p>R$ 250,00</p>
+      <button onclick="addCarrinho('Teclado Mecânico', 250)">Adicionar ao carrinho</button>
+      <button class="saiba-mais" onclick="saibaMais('Teclado Mecânico')">Saiba Mais</button>
+    </div>
+    <div class="produto">
+      <img src="https://picsum.photos/300/200?mouse" alt="Mouse Gamer">
+      <h3>Mouse Gamer RGB</h3>
+      <p>R$ 150,00</p>
+      <button onclick="addCarrinho('Mouse Gamer RGB', 150)">Adicionar ao carrinho</button>
+      <button class="saiba-mais" onclick="saibaMais('Mouse Gamer RGB')">Saiba Mais</button>
+    </div>
+    <div class="produto">
+      <img src="https://picsum.photos/300/200?headset" alt="Headset Surround">
+      <h3>Headset Surround</h3>
+      <p>R$ 320,00</p>
+      <button onclick="addCarrinho('Headset Surround', 320)">Adicionar ao carrinho</button>
+      <button class="saiba-mais" onclick="saibaMais('Headset Surround')">Saiba Mais</button>
+    </div>
+  </section>
+
+  <section class="carrinho" id="carrinho">
+    <h2>🛒 Seu Carrinho</h2>
+    <ul id="lista-carrinho"></ul>
+    <p class="total">Total: R$ <span id="total">0</span>,00</p>
+    <button onclick="finalizarCompra()">Finalizar Compra</button>
+  </section>
+
+  <footer>© 2025 TechStore - Todos os direitos reservados.</footer>
+
+  <script>
+    let total = 0;
+    const lista = document.getElementById('lista-carrinho');
+    const totalEl = document.getElementById('total');
+
+    function addCarrinho(nome, preco) {
+      const item = document.createElement('li');
+      item.innerHTML = `<span>${nome} - R$ ${preco},00</span> <button onclick="removerItem(this, ${preco})">❌</button>`;
+      lista.appendChild(item);
+      total += preco;
+      totalEl.textContent = total;
+    }
+
+    function removerItem(botao, preco) {
+      const li = botao.parentElement;
+      lista.removeChild(li);
+      total -= preco;
+      totalEl.textContent = total;
+    }
+
+    function saibaMais(nome) {
+      alert(`Você clicou em Saiba Mais sobre o produto: ${nome}. Aqui você pode mostrar detalhes ou fotos extras.`);
+    }
+
+    // Finalizar compra enviando os dados para o servidor Python (Flask)
+    function finalizarCompra() {
+      const itens = [];
+      const lis = lista.getElementsByTagName('li');
+      for (let i = 0; i < lis.length; i++) {
+        itens.push(lis[i].getElementsByTagName('span')[0].innerText);
+      }
+
+      if (itens.length === 0) {
+        alert("Seu carrinho está vazio!");
+        return;
+      }
+
+      let mensagem = "Olá, gostaria de finalizar minha compra:\n";
+      itens.forEach(item => { mensagem += "- " + item + "\n"; });
+      mensagem += `Total: R$ ${total},00`;
+
+      const numeroVendedor = "5581998142459"; // coloque o número do vendedor com código do país
+      const url = `https://wa.me/${numeroVendedor}?text=${encodeURIComponent(mensagem)}`;
+
+      window.open(url, "_blank"); // abre o WhatsApp em nova aba
+    }
+
+  </script>
+</body>
+
+</html>
